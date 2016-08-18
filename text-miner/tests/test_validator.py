@@ -1,7 +1,6 @@
 import pytest
-xfail = pytest.mark.xfail
-
 import textminer.validator as v
+xfail = pytest.mark.xfail
 
 
 @xfail

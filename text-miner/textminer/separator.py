@@ -19,11 +19,14 @@ def phone_number(string):
 
 
 def money(string):
-    match = re.search(r'^\$([0-9]{1,3})(?:,?([0-9]{3}))?(?:,?([0-9]{3}))?(?:(\.[0-9]{2}))?$', string)
+    match = re.search(r'^\$[1-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$', string)
     return_string = ''
     if match:
-        for element in match.groups():
+        new_string = string[1:]
+        match_split = new_string.split(',')
+        for element in match_split:
             return_string += element
+        return_string = return_string.replace(',', '')
         return {"currency": "$", "amount": float(return_string)}
 
 
