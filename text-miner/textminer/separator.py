@@ -23,10 +23,7 @@ def money(string):
     return_string = ''
     if match:
         new_string = string[1:]
-        match_split = new_string.split(',')
-        for element in match_split:
-            return_string += element
-        return_string = return_string.replace(',', '')
+        return_string = new_string.replace(',', '')
         return {"currency": "$", "amount": float(return_string)}
 
 
